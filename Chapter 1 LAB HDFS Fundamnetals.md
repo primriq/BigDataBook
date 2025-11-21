@@ -18,8 +18,8 @@
 ```bash
 start-dfs.sh  #run this to start the hdfs file system
 start-yarn.sh #run this to start the resource manager
-stop-dfs.sh   #run this to stop hdfs service
-stop-yarn.sh  #run this to stop resource manager
+stop-dfs.sh   #run this to stop hdfs service. use it after you are done working with hadoop
+stop-yarn.sh  #run this to stop resource manager. use it after you are done working with hadoop
 jps
 hdfs dfsadmin -report | sed -n '1,80p'
 ```
