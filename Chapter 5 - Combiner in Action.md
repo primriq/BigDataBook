@@ -240,7 +240,7 @@ hdfs dfs -cat /user/$(whoami)/output_with_combiner/part-* | sort
 | Map Output Records | 100k | 100k | Same (one per row) |
 | Combine Input Records | 0 | ~100k | Only in combiner job |
 | Combine Output Records | 0 | **≈10** | One per product (HUGE drop) |
-| Reduce Input Records | 100k | **≈5** | Network traffic reduced massively |
+| Reduce Input Records | 100k | **≈10** | Network traffic reduced massively |
 | Result Correctness | ✔️ | ✔️ | Combiners never change final output |
 
 
