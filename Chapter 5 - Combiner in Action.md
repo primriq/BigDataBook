@@ -11,7 +11,7 @@ Before running the hands-on exercises in this chapter, students must verify that
 - Python 3 installed (`python3 --version`)
 - Java installed (`java -version`)
 - Hadoop installed and configured for **pseudo-distributed mode**
-- Find the dataset used in the Dataset folder of this repo : 
+- Find the dataset used in the demo example here : 
    https://github.com/primriq/BigDataBook/blob/main/Dataset/sales.csv
 - Sales.csv contains 100k rows with 4 columns 
 
