@@ -16,6 +16,10 @@
 ## 1. Prerequisites & Quick Health Check
 
 ```bash
+start-dfs.sh  #run this to start the hdfs file system
+start-yarn.sh #run this to start the resource manager
+stop-dfs.sh   #run this to stop hdfs service
+stop-yarn.sh  #run this to stop resource manager
 jps
 hdfs dfsadmin -report | sed -n '1,80p'
 ```
@@ -88,23 +92,11 @@ hdfs dfs -rm -r -skipTrash /lab/p1
 rm -rf ~/hdfs_lab_p1
 ```
 
-## Deliverables & Rubric
 
-### Deliverables
-- Recursive listing of `/lab/p1`
-- Metadata of `readme.txt`
-- Archive directory listing
-- Line count of merged file (500 expected)
-- Explanation of -put, -copyFromLocal, -cp
-
-### Rubric
-- Setup and ingestion: 3
-- Exploration & metadata: 2
-- Move/copy: 2
-- Export & merge: 2
-- Short answer: 1
 
 ## Command Reference
+- start-dfs.sh
+- start-yarn.sh
 - jps
 - hdfs dfsadmin -report
 - hdfs dfs -mkdir -p
@@ -128,3 +120,177 @@ rm -rf ~/hdfs_lab_p1
 - Large output handling
 - Missing daemons
 - Merge order issues
+
+### 🔍 **HDFS COMMANDS EXPLAINED**
+
+
+###  **1. `jps`**
+Shows which Java-based Hadoop daemons are currently running.
+
+Typical output includes:
+- `NameNode`
+- `DataNode`
+- `ResourceManager`
+- `NodeManager`
+- `JobHistoryServer`
+
+If any are missing, Hadoop may not work properly.
+
+---
+
+###  **2. `hdfs dfsadmin -report`**
+Displays detailed HDFS cluster information including:
+- Total capacity
+- Used / remaining space
+- Number of DataNodes
+- Health status of each node
+
+Great for validating HDFS health.
+
+---
+
+###  **3. `hdfs dfs -mkdir -p <path>`**
+Creates directories inside HDFS.
+
+`-p` ensures parent directories are created if they don’t exist.
+
+Example:
+```bash
+hdfs dfs -mkdir -p /user/student/input
+```
+
+---
+
+###  **4. `hdfs dfs -ls <path>`**
+Lists files and directories inside HDFS.
+
+Example:
+```bash
+hdfs dfs -ls /user/$(whoami)
+```
+
+---
+
+###  **5. `hdfs dfs -put <local> <hdfs>`**
+Uploads a file from the local filesystem to HDFS.
+
+Example:
+```bash
+hdfs dfs -put sales.csv /user/rishu/data/
+```
+
+---
+
+###  **6. `hdfs dfs -du -h <path>`**
+Shows disk usage for files/directories in HDFS in human-readable format.
+
+Great for checking dataset sizes.
+
+---
+
+###  **7. `hdfs dfs -cat <path>`**
+Prints the contents of a file stored in HDFS to the terminal.
+
+Example:
+```bash
+hdfs dfs -cat /user/rishu/output/part-00000
+```
+
+---
+
+### **8. `hdfs dfs -text <path>`**
+Displays file contents in text format.
+Useful when files are compressed with codecs.
+
+Example:
+```bash
+hdfs dfs -text /user/rishu/logs.gz
+```
+
+---
+
+###  **9. `hdfs dfs -stat <format> <path>`**
+Prints metadata about a file.
+Common formats:
+- `%n` → name
+- `%b` → size in bytes
+- `%y` → modification time
+
+Example:
+```bash
+hdfs dfs -stat %b /user/rishu/data/sales.csv
+```
+
+---
+
+### **10. `hdfs dfs -count -h <path>`**
+Displays:
+- number of directories
+- number of files
+- disk space consumed
+
+`-h` makes it human-readable.
+
+---
+
+###  **11. `hdfs dfs -mv <source> <dest>`**
+Moves files inside HDFS.
+
+Example:
+```bash
+hdfs dfs -mv /user/rishu/temp/file.txt /user/rishu/final/
+```
+
+---
+
+###  **12. `hdfs dfs -cp <source> <dest>`**
+Copies files inside HDFS.
+
+Example:
+```bash
+hdfs dfs -cp /data/input/file.txt /backup/file.txt
+```
+
+---
+
+###  **13. `hdfs dfs -get <hdfs> <local>`**
+Downloads files from HDFS to the local filesystem.
+
+Example:
+```bash
+hdfs dfs -get /user/rishu/output/part-00000 ~/downloads/
+```
+
+---
+
+###  **14. `hdfs dfs -getmerge <hdfs-dir> <local-file>`**
+Merges multiple HDFS files (usually reducer outputs) into a single local file.
+
+Example:
+```bash
+hdfs dfs -getmerge /user/rishu/output/ result.txt
+```
+
+---
+
+###  **15. `hdfs dfs -rm <path>`**
+Deletes a file from HDFS.
+To delete folders:
+```bash
+hdfs dfs -rm -r <dir>
+```
+Add `-f` to avoid errors when the file doesn’t exist.
+
+Example:
+```bash
+hdfs dfs -rm -r -f /user/rishu/old_output
+```
+
+---
+
+© Copyright **PrimrIQ AI Services LLP**
+ **PrimrIQ AI Services LLP**
+
+
+
+
