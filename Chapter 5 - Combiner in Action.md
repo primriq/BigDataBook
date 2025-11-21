@@ -1,18 +1,18 @@
-# **Chapter 4: Combiner in Action**
+# **Chapter 5: Combiner in Action**
 
 ---
 
-## 🧰 **Before You Start — System Checklist**
+##  **Before You Start — System Checklist**
 
 Before running the hands-on exercises in this chapter, students must verify that their system, environment, and directory setup match the requirements. Use this checklist:
 
-### ✅ **1. WSL / Linux environment setup**
+###  **1. WSL / Linux environment setup**
 - Using **Ubuntu on WSL** or any Linux distro
 - Python 3 installed (`python3 --version`)
 - Java installed (`java -version`)
 - Hadoop installed and configured for **pseudo-distributed mode**
 
-### ✅ **2. Hadoop Services Running**
+###  **2. Hadoop Services Running**
 Run:
 ```bash
 jps
@@ -31,7 +31,7 @@ start-all.sh
 mr-jobhistory-daemon.sh start historyserver
 ```
 
-### ✅ **3. Set STREAMING_JAR Variable**
+###  **3. Set STREAMING_JAR Variable**
 Verify:
 ```bash
 echo $STREAMING_JAR
@@ -45,7 +45,7 @@ Reload:
 source ~/.bashrc
 ```
 
-### ✅ **4. Directory Structure Must Be Clear**
+###  **4. Directory Structure Must Be Clear**
 Students must confirm where their files live.
 Recommended structure:
 ```
@@ -59,14 +59,14 @@ If your paths differ, **adapt all commands accordingly**.
 - If mapper is in `/home/alex/hadoop/scripts/mapper.py` → change all commands to match that path.
 - If CSV is in `/data/sales/sales.csv` → update both local and HDFS commands.
 
-### ✅ **5. HDFS Working Properly**
+###  **5. HDFS Working Properly**
 Test HDFS:
 ```bash
 hdfs dfs -ls /
 ```
 If you get an error, re-check NameNode/DataNode services.
 
-### ✅ **6. Internet Not Required**
+###  **6. Internet Not Required**
 Everything is local; no external downloads required.
 
 ---
@@ -77,7 +77,7 @@ This chapter demonstrates how Hadoop Streaming processes data **with and without
 
 ---
 
-## ## 🧱 **1. Project Structure**
+## ##  **1. Project Structure**
 
 Your files are organized like this:
 
@@ -91,7 +91,7 @@ Mapper & reducer sit in the home directory. Only the CSV lives inside the demo f
 
 ---
 
-## ## 📥 **2. Copy CSV File Into Working Directory**
+## ##  **2. Copy CSV File Into Working Directory**
 
 ```bash
 cp "/mnt/c/Users/rishu/OneDrive - PrimrIQ AI Services LLP/Desktop/Hadoop Demo Files/sales.csv" \
@@ -106,7 +106,7 @@ ls ~/mapreduce-combiner-csv-demo
 
 ---
 
-## ## 🗂️ **3. Upload CSV to HDFS**
+## ##  **3. Upload CSV to HDFS**
 
 ```bash
 hdfs dfs -mkdir -p /user/$(whoami)/csv_combiner_demo
@@ -122,7 +122,7 @@ hdfs dfs -ls /user/$(whoami)/csv_combiner_demo
 
 ---
 
-## ## 🧪 **4. Test Mapper and Reducer Locally**
+## ##  **4. Test Mapper and Reducer Locally**
 
 ### Test Mapper
 ```bash
@@ -141,7 +141,7 @@ This simulates Map → Shuffle → Reduce without Hadoop.
 
 ---
 
-## ## 🚀 **5. Run Hadoop Job WITHOUT Combiner**
+## ##  **5. Run Hadoop Job WITHOUT Combiner**
 
 ### Clean previous output
 ```bash
@@ -165,7 +165,7 @@ hdfs dfs -cat /user/$(whoami)/output_no_combiner/part-* | sort
 
 ---
 
-## ## 🔍 **6. Show Mapper Output (No Combiner)**
+## ##  **6. Show Mapper Output (No Combiner)**
 
 This shows exactly what Hadoop sends into the shuffle phase.
 
@@ -191,7 +191,7 @@ hdfs dfs -cat /user/$(whoami)/output_mapper_only/part-* | head
 
 ---
 
-## ## ⚡ **7. Run Hadoop Job WITH Combiner**
+## ##  **7. Run Hadoop Job WITH Combiner**
 
 ### Clean old output
 ```bash
@@ -216,9 +216,9 @@ hdfs dfs -cat /user/$(whoami)/output_with_combiner/part-* | sort
 
 ---
 
-## ## 📊 **8. Comparing Both Runs (Key Learnings & How to Adapt Commands)**
+## ##  **8. Comparing Both Runs (Key Learnings & How to Adapt Commands)**
 
-> ⚠️ *Important for students:*
+>  *Important for students:*
 >
 > The commands shown in this chapter assume:
 > - Your `mapper.py` and `reducer.py` are in your **home directory** (`/home/<username>`)
@@ -246,7 +246,7 @@ hdfs dfs -cat /user/$(whoami)/output_with_combiner/part-* | sort
 
 ---
 
-## ## 🏁 **9. Summary**
+## ##  **9. Summary**
 
 By running MapReduce with and without a combiner, we saw:
 - How mapper outputs blow up shuffle data
