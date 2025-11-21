@@ -1,10 +1,9 @@
 # **Chapter: HDFS Internals — Blocks, Replication, Safemode & Cluster Health**
-*A Practical, Hands-On Instructional Chapter for Textbooks*
 
 ---
 
 ## **Introduction**
-This chapter provides a clear and hands-on exploration of key internal components of the Hadoop Distributed File System (HDFS). Students will not only learn the concepts but also execute real commands to observe system behavior.
+This chapter provides a clear and hands-on exploration of key internal components of the Hadoop Distributed File System (HDFS). Students will execute commands to observe system behavior.
 
 You will learn:
 - How HDFS stores data as blocks
@@ -14,7 +13,7 @@ You will learn:
 - How to validate file integrity with `fsck`
 - How quotas protect the filesystem
 
-This is a fully practical chapter. Every concept is paired with a demonstration.
+Every concept is paired with a demonstration.
 
 ---
 
