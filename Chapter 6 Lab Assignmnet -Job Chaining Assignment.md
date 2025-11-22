@@ -9,13 +9,10 @@
 You have recently joined PrimrCart, an e-commerce analytics startup that provides real-time insights to partner retail brands.
 PrimrCart collects millions of sales transactions daily from marketplaces such as:
 
-Amazon
-
-Flipkart
-
-Ajio
-
-BigBasket
+-- Amazon
+-- Flipkart
+-- Ajio
+-- BigBasket
 
 The analytics engine is built on Hadoop (pseudo-distributed) for batch processing.
 Your team is responsible for identifying the hero product in each product category — the item that generates the maximum revenue.
@@ -33,11 +30,11 @@ Improve the performance of the “Hero Product Finder” Hadoop pipeline by addi
 
 PrimrCart leadership wants to reduce:
 
-Network I/O between mappers and reducers
+  -- Network I/O between mappers and reducers
 
-Shuffle size
+  -- Shuffle size
 
-Total job runtime
+   -- Total job runtime
 
 However, the final output must remain consistent.
 
@@ -60,13 +57,9 @@ stored in HDFS at:
 The fields include:
 
 category
-
 product
-
 unit_price
-
 quantity
-
 … and other metadata
 
 You must not modify the dataset. 
@@ -219,5 +212,5 @@ Submit:
 
 ---
 
-### End of Assignment  
+
 Prepared by **PrimrIQ**
