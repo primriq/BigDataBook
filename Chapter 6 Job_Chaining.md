@@ -75,9 +75,9 @@ This forms a standard MapReduce pipeline.
 
 ---
 
-# 4. Python MapReduce Scripts (Exact Copies)
+# 4. Python MapReduce Scripts 
 
-Below are the **exact scripts** you provided, included without modification.
+
 
 ---
 
@@ -236,7 +236,7 @@ if current_category is not None:
 
 # 5. Running the Job Chain
 
-Below is the **exact job-chain.sh** script you provided.
+
 
 ---
 
@@ -317,7 +317,5 @@ In this chapter, we:
 
 This forms a fully working pipeline to compute **hero products per category** in Hadoop.
 
----
 
-# End of Chapter
 Prepared by **PrimrIQ**
