@@ -6,21 +6,40 @@
 
 ## 1. Scenario
 
-You have joined **PrimrCart**, an e-commerce analytics startup processing millions of sales records daily from major platforms. Your responsibility is to optimize the Hadoop batch analytics pipeline that identifies the **hero product** (highest revenue product) within each category.
+You have recently joined PrimrCart, an e-commerce analytics startup that provides real-time insights to partner retail brands.
+PrimrCart collects millions of sales transactions daily from marketplaces such as:
 
-The current pipeline works but is becoming slow due to high shuffle volume between mappers and reducers.  
-Your task is to introduce a **Combiner** into the existing Hadoop Streaming workflow without changing the final output of the system.
+Amazon
+
+Flipkart
+
+Ajio
+
+BigBasket
+
+The analytics engine is built on Hadoop (pseudo-distributed) for batch processing.
+Your team is responsible for identifying the hero product in each product category — the item that generates the maximum revenue.
+
+Recently, the engineering team noticed that the daily aggregation job is running slower due to a large number of mapper output records.
+Your manager assigns you the following task:.
 
 ---
 
 ## 2. Business Requirement
 
-You must enhance the performance of the “Hero Product Finder” Hadoop pipeline by:
+Business Requirement
 
-- Reducing mapper output records  
-- Reducing shuffle size  
-- Maintaining identical final results  
-- Keeping compatibility with the chained job workflow  
+Improve the performance of the “Hero Product Finder” Hadoop pipeline by adding a Combiner to reduce mapper output size and verifying that the chained pipeline continues to produce correct results.
+
+PrimrCart leadership wants to reduce:
+
+Network I/O between mappers and reducers
+
+Shuffle size
+
+Total job runtime
+
+However, the final output must remain consistent.
 
 ---
 
@@ -38,13 +57,19 @@ stored in HDFS at:
 /user/<username>/input_jobchaining_sales/ecommerce_sale.csv
 ```
 
-Fields include:
+The fields include:
 
-- category  
-- product  
-- unit_price  
-- quantity  
-- and other metadata  
+category
+
+product
+
+unit_price
+
+quantity
+
+… and other metadata
+
+You must not modify the dataset. 
 
 ---
 
@@ -76,7 +101,13 @@ category,hero_product,total_revenue,total_qty
 
 ---
 
-## 5. Your Tasks
+## 5. Your Assignment
+
+PrimrCart’s CTO asks you to optimize the current Hadoop Streaming pipeline.
+
+You must complete the following tasks:
+
+
 
 ### **Task 1 — Run Baseline Pipeline (No Combiner)**
 
