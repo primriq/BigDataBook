@@ -1,4 +1,4 @@
-# Chapter: Hadoop Job Chaining with Python Streaming (PrimrIQ Edition)
+# Chapter: Hadoop Job Chaining with Python Streaming 
 
 This chapter walks through a complete **two‑stage MapReduce job chaining pipeline** using Hadoop Streaming and Python.  
 It uses the **ecommerce_sale.csv** dataset and demonstrates how to build:
