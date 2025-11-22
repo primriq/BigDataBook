@@ -6,7 +6,6 @@ It uses the **ecommerce_sale.csv** dataset and demonstrates how to build:
 1. **Job 1:** Aggregate total quantity and revenue per `(category, product)`  
 2. **Job 2:** Determine the **hero product** (highest revenue item) in each category  
 
-All code below is copied **exactly as provided** — no modifications have been made.
 
 ---
 
